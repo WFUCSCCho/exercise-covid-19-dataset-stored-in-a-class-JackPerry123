@@ -45,15 +45,24 @@ public class Covid {
             if (parts[1].equals(country)) {
                 // Date,Country/Region,Confirmed,Deaths,Recovered,Active,New cases,New deaths,New recovered,WHO Region
                 // TODO: Create a new COVIDData object
-
-
-                covidList.add(data); // add the data onto the ArrayList
+                COVIDData d = new COVIDData();
+                d.setDate(parts[0]);
+                d.setCountry(parts[1]);
+                d.setConfirmed(Integer.parseInt(parts[2]));
+                d.setDeaths(Integer.parseInt(parts[3]));
+                d.setRecovered(Integer.parseInt(parts[4]));
+                d.setActive(Integer.parseInt(parts[5]));
+                d.setNewCases(Integer.parseInt(parts[6]));
+                d.setNewDeaths(Integer.parseInt(parts[7]));
+                d.setNewRecovered(Integer.parseInt(parts[8]));
+                d.setWhoRegion(parts[9]);
+                covidList.add(d); // add the data onto the ArrayList
             }
         }
         inputFileNameStream.close(); // because I care
 
         // TODO: Sort the COVID data
-
+        Collections.sort(covidList);
 
         // Print the COVID data
         for (COVIDData data : covidList) {

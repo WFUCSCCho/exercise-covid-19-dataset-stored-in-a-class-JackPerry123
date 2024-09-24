@@ -47,7 +47,10 @@ public class COVIDData implements Comparable<COVIDData> {
     }
 
     // TODO: Comparable interface for COVID data
+    public int compareTo(COVIDData d){
+        return this.confirmed.compareTo(d.confirmed);
 
+    }
     // Getters and Setters for Date
     public String getDate() {
         return date;
